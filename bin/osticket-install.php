@@ -134,7 +134,7 @@ if (!$linked) {
 echo "Waiting for database TCP connection to become available...\n";
 $s = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 $t = 0;
-while (!@socket_connect($s,$vars['dbhost'],3306) && $t < CONNECTION_TIMEOUT_SEC) {
+while (!@socket_connect($s,$vars['dbhost']) && $t < CONNECTION_TIMEOUT_SEC) {
   $t++;
   if (($t % 15) == 0) {
     echo "Waited for $t seconds...\n";
